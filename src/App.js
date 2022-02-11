@@ -1,9 +1,7 @@
 
-import './App.css';
-
 import AddUser from './COMPONENTS/User/AddUser';
 import UserList from './COMPONENTS/User/UserList';
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function App() {
   const UserData=[];
@@ -13,12 +11,12 @@ function App() {
        return[User,...prevUser]
      })
    }
-
+// instead of wrapper we can use a built in react fragment
   return (
-    <div>
+    <React.Fragment>
     <AddUser onNewUser={newUserHandler}></AddUser>
     <UserList Users={Users} ></UserList>
-    </div>
+    </React.Fragment>
   );
 }
 

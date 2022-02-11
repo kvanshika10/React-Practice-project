@@ -3,6 +3,7 @@ import React,{useState} from "react"
 import Card from '../UI/Card.js'
 import Button from "../UI/Button.js"
 import ErrorModal from "../UI/ErrorModal";
+import Wrapper from "../helper/Wrapper";
 
 
 
@@ -20,7 +21,7 @@ const[error,setError]=useState();
           age:UserAge
         }
         
-        if(UserName.trim().length===0||UserAge.trim().length===0){
+        if(UserName.trim().length===0||UserAge.trim().length==0){
              setError({
                title:"Invalid Input",
                message:"Please enter a valid name and  age(non-empty values)"
@@ -50,7 +51,7 @@ const[error,setError]=useState();
      
    }
     return(
-      <div>
+      <Wrapper>
      {error&& <ErrorModal title={error.title} message={error.message} onConfirm={errorHandler}></ErrorModal>}
      <Card  className={classes.input}>
     <form onSubmit={addUserHandler}>
@@ -62,7 +63,7 @@ const[error,setError]=useState();
     <Button type="submit"> Add User</Button>
       </form>
     </Card>
-    </div>
+    </Wrapper>
 
     )}
 
